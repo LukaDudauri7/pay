@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+	<title>EPAY კომუნალური</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #b3d1ff;
+        }
+
+        header {
+            background-color: #0066ff;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            color: white;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black;
+            -webkit-text-stroke-linejoin: round;
+        }
+
+        article {
+            background-color: #b3d1ff;
+            height: 400px;
+        }
+
+        footer {
+            background-color: #0066ff;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            margin-top: -15px;
+        }
+	</style>
+</head>
+
+<body>
+
+
+	<header>
+		<h2>EPAY კომუნალური გადასახადი</h2>
+	</header>
+	<article>
+		<h3 style="text-align:center;"> გადახდა</h3>
+		<form id="T_qviTari" name="T_qviTari" action="epay_comunal_tskali_form_qviTari.html" method="GET">
+			<table border="0" align="center">
+				<tr>
+					<td align="right">ქვითრის ნომერი: </td>
+					<td><input placeholder="5 სიმბოლო"  type="text" name="qviTari" onkeyup="abnnt()" id="qviTari"></td>
+				</tr>
+				<tr>
+					<td align="right">აბონენტი</td>
+					<td><input type="text" id="vali" name="vali"></td>
+				</tr>
+				<tr>
+					<td align="right">დავალიანება:</td>
+					<td><input type="text" id="davalianeba" name="davalianeba"></td>
+				</tr>
+				<tr>
+					<td align="right">საკომისიო:</td>
+					<td>0.5%</td>
+				</tr>
+				<tr>
+					<td align="right">გადასახდელი თანხა:</td>
+					<td><input type="text" id="Tanxa" name="Tanxa"></td>
+				</tr>
+				<tr>
+					<td> </td>
+					<td><input type="submit"></td>
+				</tr>
+
+			</table>
+		</form>
+
+		<table border="0" align="center">
+			<tr>
+				<td><img src="images/bog.jpg" style="width:300px;height:auto"></td>
+				<td><img src="images/TBC.png" style="width:200px;height:auto;"></td>
+			</tr>
+		</table>
+		<h4 style="text-align:center;">ინტერნეტ ბანკით გადახდა დაემატება მალე</h4>
+	</article>
+	<script>
+
+		var anbani = ["ა", "ბ", "გ", "დ", "ე",
+			"ვ", "ზ", "თ", "ი", "კ",
+			"ლ", "მ", "ნ", "ო", "პ",
+			"ჟ", "რ", "ს", "ტ", "უ",
+			"ფ", "ქ", "ღ", "ყ", "შ",
+			"ჩ", "ც", "ძ", "წ", "ჭ",
+			"ხ", "ჯ", "ჰ"];
+
+
+
+		function abnnt() {
+
+			if (document.getElementById("qviTari").value.length == 5) {
+				var name1 = Math.floor(Math.random() * 33);
+				var surname = Math.floor(Math.random() * 33);
+				document.getElementById("vali").value = anbani[name1] + "." + anbani[surname];
+				var davalianeba = Math.floor(Math.random() * 10000) / 100;
+				document.getElementById("davalianeba").value = davalianeba;
+
+				var Tanxa = davalianeba + ((davalianeba * 0.5) / 100);
+				document.getElementById("Tanxa").value = Math.round(Tanxa * 100) / 100;
+			}
+		}
+
+
+	</script>
+
+
+	<footer>
+		<p>კომუნალური გადასახადი 2021</p>
+	</footer>
+
+</body>
+</html>

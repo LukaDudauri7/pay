@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="ka">
+	<head>
+		<title>EPAY კომუნალური</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #ffeb99;
+            }
+
+            header {
+                background-color: #ffcc00;
+                padding: 20px;
+                text-align: center;
+                font-size: 28px;
+                color: white;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: black;
+                -webkit-text-stroke-linejoin: round;
+            }
+
+            article {
+                background-color: #ffeb99;
+                height: 400px;
+            }
+
+            footer {
+                background-color: #ffcc00;
+                padding: 10px;
+                text-align: center;
+                color: white;
+                margin-top: 114px;
+            }
+
+		</style>
+	</head>
+	
+	<body>
+	
+
+	<header>
+	  <h2>EPAY კომუნალური გადასახადი</h2>
+	</header>
+	<h2 style="text-align:center;">ქვითარი</h2>
+	<script>
+	  var args = window.location.search;
+	  console.log(args);
+	  args = args.substring(1,args.length);
+	  console.log(args);
+	  var splitargs = args.split("&");
+	  console.log(splitargs);
+	  
+	  var qviTari = splitargs[0].split("="); console.log(qviTari[1]);
+	  var davalianeba = splitargs[2].split("=");console.log(davalianeba[1]);
+	  var Tanxa = splitargs[3].split("=");console.log(Tanxa[1]);
+	  
+	  
+	</script>
+    <form id="F_qviTari" name="F_qviTari" action="" method="GET">
+		<table border="0" align="center">
+		  <tr>
+			<td align="right">ქვითრის ნომერი: </td>
+			<td><p id="qviTari"></p></td>
+		  </tr>
+		  <tr>
+			<td align="right">დავალიანება:</td>
+			<td><p id="dav"></p></td>
+		  </tr>
+		  <tr>
+			<td align="right">საკომისიო:</td>
+			<td><p>0.5%</p></td>
+		  </tr>
+		  <tr>
+			<td align="right">გადასახდელი თანხა:</td>
+			<td><p id="Tanx" ></p></td>
+		  </tr>
+
+
+		</table>
+	</form>
+	<script>
+	  document.getElementById("qviTari").innerHTML = qviTari;
+	  document.getElementById("dav").innerHTML = davalianeba;
+	  document.getElementById("Tanx").innerHTML = Tanxa;
+	</script>
+	<footer>
+	  <p>ყველა უფლება დაცულია 2021</p>
+	</footer>
+
+	</body>
+</html>
